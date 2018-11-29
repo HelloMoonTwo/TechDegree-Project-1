@@ -1,77 +1,77 @@
 // List of players
 var players: [[String: String]] = [
     [ "name": "Joe Smith",
-    "height": "42",
-    "experience": "true",
-    "guardians": "Jim and Jan Smith", ],
+      "height": "42",
+      "experience": "true",
+      "guardians": "Jim and Jan Smith", ],
     [ "name": "Jill Tanner",
-    "height": "36",
-    "experience": "true",
-    "guardians": "Ciara Tanner", ],
+      "height": "36",
+      "experience": "true",
+      "guardians": "Ciara Tanner", ],
     [ "name": "Bill Bon",
-    "height": "43",
-    "experience": "true",
-    "guardians": "Sara and Jenny Bon", ],
+      "height": "43",
+      "experience": "true",
+      "guardians": "Sara and Jenny Bon", ],
     [ "name": "Eva Gordon",
-    "height": "45",
-    "experience": "false",
-    "guardians": "Wendy and Mike Gordon", ],
+      "height": "45",
+      "experience": "false",
+      "guardians": "Wendy and Mike Gordon", ],
     [ "name": "Matt Gill",
-    "height": "40",
-    "experience": "false",
-    "guardians": "Charles and Sylvia Gill", ],
+      "height": "40",
+      "experience": "false",
+      "guardians": "Charles and Sylvia Gill", ],
     [ "name": "Kimmy Stein",
-    "height": "41",
-    "experience": "false",
-    "guardians": "Bill and Hillary Stein", ],
+      "height": "41",
+      "experience": "false",
+      "guardians": "Bill and Hillary Stein", ],
     [ "name": "Sammy Adams",
-    "height": "45",
-    "experience": "false",
-    "guardians": "Jeff Adams", ],
+      "height": "45",
+      "experience": "false",
+      "guardians": "Jeff Adams", ],
     [ "name": "Karl Saygan",
-    "height": "42",
-    "experience": "true",
-    "guardians": "Heather Bledsoe", ],
+      "height": "42",
+      "experience": "true",
+      "guardians": "Heather Bledsoe", ],
     [ "name": "Suzane Greenberg",
-    "height": "44",
-    "experience": "true",
-    "guardians": "Henrietta Dumas", ],
+      "height": "44",
+      "experience": "true",
+      "guardians": "Henrietta Dumas", ],
     [ "name": "Sal Dali",
-    "height": "41",
-    "experience": "false",
-    "guardians": "Gala Dali", ],
+      "height": "41",
+      "experience": "false",
+      "guardians": "Gala Dali", ],
     [ "name": "Joe Kavalier",
-    "height": "39",
-    "experience": "false",
-    "guardians": "Sam and Elaine Kavalier", ],
+      "height": "39",
+      "experience": "false",
+      "guardians": "Sam and Elaine Kavalier", ],
     [ "name": "Ben Finkelstein",
-    "height": "44",
-    "experience": "false",
-    "guardians": "Aaron and Jill Finkelstein", ],
+      "height": "44",
+      "experience": "false",
+      "guardians": "Aaron and Jill Finkelstein", ],
     [ "name": "Diego Soto",
-    "height": "41",
-    "experience": "true",
-    "guardians": "Robin and Sarika Soto", ],
+      "height": "41",
+      "experience": "true",
+      "guardians": "Robin and Sarika Soto", ],
     [ "name": "Chloe Alaska",
-    "height": "47",
-    "experience": "false",
-    "guardians": "David and Jamie Alaska", ],
+      "height": "47",
+      "experience": "false",
+      "guardians": "David and Jamie Alaska", ],
     [ "name": "Arnold Wills",
-    "height": "43",
-    "experience": "false",
-    "guardians": "Claire Wills", ],
+      "height": "43",
+      "experience": "false",
+      "guardians": "Claire Wills", ],
     [ "name": "Phillip Helm",
-    "height": "44",
-    "experience": "true",
-    "guardians": "Thomas Helm and Eva Jones", ],
+      "height": "44",
+      "experience": "true",
+      "guardians": "Thomas Helm and Eva Jones", ],
     [ "name": "Les Clay",
-    "height": "42",
-    "experience": "true",
-    "guardians": "Wynonna Brown", ],
+      "height": "42",
+      "experience": "true",
+      "guardians": "Wynonna Brown", ],
     [ "name": "Herschel Krustofski",
-    "height": "45",
-    "experience": "true",
-    "guardians": "Hyman and Rachel Krustofski", ]
+      "height": "45",
+      "experience": "true",
+      "guardians": "Hyman and Rachel Krustofski", ]
 ]
 
 // This will group the players into experienced/non-experienced groups
@@ -90,15 +90,29 @@ for player in players {
 }
 
 // This will put the players into teams
+var theLeague: [[String: String]] = [
+    [ "name" : "Dragons",
+      "month" : "March",
+      "day" : "17",
+      "time" : "1pm", ],
+    [ "name" : "Sharks",
+      "month" : "March",
+      "day" : "17",
+      "time" : "3pm", ],
+    [ "name" : "Raptors",
+      "month" : "March",
+      "day" : "18",
+      "time" : "1pm", ],
+]
 var teamDragons: [[String: String]] = []
 var teamSharks: [[String: String]] = []
 var teamRaptors: [[String: String]] = []
 
 func makeTeams (groupSelection group: [[String: String]]) {
-    var playerCount: Int = group.count / 3
+    var playerCount: Int = group.count / theLeague.count
     // Following code will make sure that grow with increased players
     while playerCount == teamDragons.count {
-        playerCount += (group.count / 3)
+        playerCount += (group.count / theLeague.count)
     }
     for player in group {
         if (teamDragons.count != playerCount) {
@@ -116,27 +130,11 @@ makeTeams(groupSelection: experiencedPlayers)
 makeTeams(groupSelection: noExperiencePlayers)
 
 // Letters to parents
-let dragonsDate: [String: String] = [
-    "name" : "Dragons",
-    "month" : "March",
-    "day" : "17",
-    "time" : "1pm", ]
-let sharksDate: [String: String] = [
-    "name" : "Sharks",
-    "month" : "March",
-    "day" : "17",
-    "time" : "3pm", ]
-let raptorsDate: [String: String] = [
-    "name" : "Raptors",
-    "month" : "March",
-    "day" : "18",
-    "time" : "1pm", ]
-
 func firstPracticeLetters (playersTeam team: [[String: String]], teamInfo info: [String: String]) {
     for player in team {
         print("Hello \(player["guardians"]!), we would like to inform you that \(player["name"]!) was placed with the \(info["name"]!). The first practice date for the \(info["name"]!) will be on \(info["month"]!) \(info["day"]!) \(info["time"]!) at the local Swift Soccer Feild. Go \(info["name"]!)!")
     }
 }
-firstPracticeLetters(playersTeam: teamDragons, teamInfo: dragonsDate)
-firstPracticeLetters(playersTeam: teamSharks, teamInfo: sharksDate)
-firstPracticeLetters(playersTeam: teamRaptors, teamInfo: raptorsDate)
+firstPracticeLetters(playersTeam: teamDragons, teamInfo: theLeague[0])
+firstPracticeLetters(playersTeam: teamSharks, teamInfo: theLeague[1])
+firstPracticeLetters(playersTeam: teamRaptors, teamInfo: theLeague[2])
