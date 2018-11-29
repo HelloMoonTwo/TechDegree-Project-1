@@ -130,9 +130,12 @@ makeTeams(groupSelection: experiencedPlayers)
 makeTeams(groupSelection: noExperiencePlayers)
 
 // Letters to parents
+var letters: [String] = []
 func firstPracticeLetters (playersTeam team: [[String: String]], teamInfo info: [String: String]) {
     for player in team {
-        print("Hello \(player["guardians"]!), we would like to inform you that \(player["name"]!) was placed with the \(info["name"]!). The first practice date for the \(info["name"]!) will be on \(info["month"]!) \(info["day"]!) \(info["time"]!) at the local Swift Soccer Feild. Go \(info["name"]!)!")
+        let lettersToPerants = "Hello \(player["guardians"]!), we would like to inform you that \(player["name"]!) was placed with the \(info["name"]!). The first practice date for the \(info["name"]!) will be on \(info["month"]!) \(info["day"]!) \(info["time"]!) at the local Swift Soccer Feild. Go \(info["name"]!)!"
+        print(lettersToPerants)
+        letters.append(lettersToPerants)
     }
 }
 firstPracticeLetters(playersTeam: teamDragons, teamInfo: theLeague[0])
